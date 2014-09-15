@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Template</title>
+        <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+        <script src="tempy.js"></script>
+        <script type="text/javascript">
+            jQuery(function(){
+                jQuery("#objectTemplate").append(Tempy.compile("#testObject", {name: "World"}));
+                jQuery("#arrayTemplate").append(Tempy.compile("#testArray", ["John", "Mike"]));
+                jQuery("#primitiveTemplate").append(Tempy.compile("#testPrimitive", "World"));
+            })
+        </script>
+    </head>
+    <script type="text/tempy" id="testObject">
+        Hello,  {{name}}!
+    </script>
+    <script type="text/tempy" id="testArray">
+        Hello {{0}} and {{1}}!
+    </script>
+    <script type="text/tempy" id="testPrimitive">
+        Hello {{this}}!
+    </script>
+    <body>
+        <h1>Tempy example</h1>
+        <p>
+            <h3>Object</h3>
+            <pre>Tempy.compile("#testObject", {name: "object"});</pre>
+            <span id="objectTemplate"></span>
+        </p>
+        <hr />
+        <p>
+            <h3>Array</h3>
+            <pre>Tempy.compile("#testArray", ["John", "Mike"]);</pre>
+            <span id="arrayTemplate"></span>
+        </p>
+        <hr />
+        <p>
+            <h3>Primitive</h3>
+            <pre>Tempy.compile("#testArray", "World");</pre>
+            <span id="primitiveTemplate"></span>
+        </p>
+    </body>
+</html>
